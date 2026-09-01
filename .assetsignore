@@ -1,3 +1,4 @@
+# Cloudflare exclusions
 .git
 .wrangler
 node_modules
