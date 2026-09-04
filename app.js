@@ -66,7 +66,6 @@
   }
   appendLines($("#mission-lead"), data.mission?.leadLines);
 
-
   // News
   setText("#news-eyebrow", data.news?.eyebrow);
   setText("#news-title", data.news?.title);
@@ -132,15 +131,32 @@
   }
 
   // Company
+  // rows は ["項目名", "表示文字"] または
+  // ["項目名", "表示文字", "リンク先URL"] の形式に対応します。
   setText("#company-eyebrow", data.company?.eyebrow);
   setText("#company-title", data.company?.title);
   const companyRows = $("#company-rows");
   if (companyRows) {
     companyRows.replaceChildren();
-    (data.company?.rows || []).forEach(([label, value]) => {
+    (data.company?.rows || []).forEach(([label, value, href]) => {
       const wrap = el("div");
       const dt = el("dt"); dt.textContent = label || "";
-      const dd = el("dd"); dd.textContent = value || "";
+      const dd = el("dd");
+
+      if (href) {
+        const link = el("a", "company-link");
+        link.href = href;
+        link.textContent = value || href;
+        link.target = "_blank";
+        link.rel = "noopener";
+        // style.css の全体設定でリンク装飾が消えていても分かるようにする
+        link.style.textDecoration = "underline";
+        link.style.textUnderlineOffset = "3px";
+        dd.appendChild(link);
+      } else {
+        dd.textContent = value || "";
+      }
+
       wrap.append(dt, dd);
       companyRows.appendChild(wrap);
     });

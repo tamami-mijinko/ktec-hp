@@ -1,11 +1,13 @@
-K-TEC HP URL修正 v7.3
+K-TEC HP Instagramリンク修正 v7.4
 
-変更内容：
-・ヘッダーのロゴを押したとき、#contact 等を残さずトップURLへ戻るよう修正
-・メニューの HOME を押したとき、#contact 等を残さずトップURLへ戻るよう修正
-・スマホ下部の HOME を押したとき、#contact 等を残さずトップURLへ戻るよう修正
+変更内容
+・会社案内の Instagram「@ktec1011」をクリックできるリンクに変更
+・クリックすると Instagram の @ktec1011 を別タブで開きます
+・site-data.js の会社情報は、3つ目の項目にURLを書けば他の項目もリンク化できるようにしました
 
-反映方法：
-GitHub の現在の index.html を、このZIP内の index.html で上書きして Commit してください。
+反映方法
+GitHub上の次の2ファイルを、このZIP内の同名ファイルで上書きしてください。
+・site-data.js
+・app.js
 
-他のファイルは変更不要です。
+index.html、style.css、assets は変更不要です。
