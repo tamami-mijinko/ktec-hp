@@ -119,6 +119,7 @@
         const img = el("img", "service-photo");
         img.src = item.image;
         img.alt = item.imageAlt || item.title || "施工写真";
+        if (item.title === "橋梁補強工事") img.classList.add("bridge-photo");
         article.appendChild(img);
       }
       const body = el("div", "service-body");
